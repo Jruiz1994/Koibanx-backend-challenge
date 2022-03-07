@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "51669d42-d92a-4c49-8e3f-e80665f2064e",
+		"name": "Challenge backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all stores",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test@koibanx.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/stores?page=1&limit=3",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"stores"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post store",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "test123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "test@koibanx.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"concepts\": [\r\n          {\"Concepto 1\": \"test\"},\r\n          {\"Concepto 2\": \"test\"},\r\n          {\"Concepto 3\": \"test\"},\r\n          {\"Concepto 4\": \"test\"},\r\n          {\"Concepto 5\": \"test\"},\r\n          {\"Concepto 6\": \"test\"}\r\n      ],\r\n      \"active\": true,\r\n      \"name\": \"Store 6 test\",\r\n      \"cuit\": \"123456789012\",\r\n      \"currentBalance\": 600,\r\n      \"lastSale\": \"2022-03-03\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/stores",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"stores"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
