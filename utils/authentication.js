@@ -21,16 +21,15 @@ function auth(req, res, next) {
   });
 }
 
-function authenticate({username, password}) {
-  return new Promise(async function(resolve, reject) {
-    const user = await UserModel.findOne({'username': username})
-
-    function verify(user) {
-      if (user && user.verifyPassword(password)) resolve(user);
-      else reject();
-    };
-    verify(user)
-  });
-}
+async function authenticate({username,password}) {
+  //aca habia puesto un try
+    const user=await UserModel.findOne({'username': username})
+    if(user&&user.verifyPassword(password)) {
+      return user
+    } else {
+      throw new Error(err)
+  }
+  //aca estaba el catch con el throw new Error de nuevo
+  }
 
 export default auth
