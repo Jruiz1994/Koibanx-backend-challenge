@@ -1,10 +1,17 @@
 class StoreService {
   constructor(model) {this.model = model}
 
-  async getAll() {
+  async getAll(options) {
     try {
-      const respuesta = await this.model.find()
-      return respuesta
+      const respuestaCruda=await this.model.paginate({},options)
+      const respuestaJSON={
+        data: respuestaCruda.docs,
+        page: respuestaCruda.page,
+        pages: respuestaCruda.totalPages,
+        limit: respuestaCruda.limit,
+        total: respuestaCruda.totalDocs
+      }
+      return respuestaJSON
     } catch (error) {
       throw new Error(error)
     }
