@@ -17,3 +17,5 @@
 - Agregue la coleccion de postman para que puedan probar los endpoints mas facil :)
 
 - Cambie la forma de paginacion, antes hacia un find y luego paginaba la data. Ahora uso el plugin mongoose-paginate-v2 para que la consulta me traiga solamente los documentos de la pagina que le paso por query param
+
+- Hice cambios en authentication.js para pasar de Promises a async/await el codigo. Ahora me funciona bien el manejo de excepcion cuando me logueo con las credenciales erroneas
